@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const apiKey = process.env.REACT_APP_API_KEY;
-const apiUrl = process.env.REACT_APP_API_URL;
+
+const apiUrl = "https://api.giphy.com/v1/gifs";
 
 interface Gif {
   id: string;
@@ -45,6 +46,44 @@ export const fetchGifs = createAsyncThunk(
         offset,
       },
     });
+
     return { data: response.data, reset };
   }
 );
+
+const gifSlice = createSlice({
+  name: "gifs",
+  initialState,
+  reducers: {
+    resetOffset: (state) => {
+      state.offset = 0;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(
+      fetchGifs.fulfilled,
+      (
+        state,
+        action: PayloadAction<{
+          data: { data: Gif[]; pagination: { total_count: number } };
+          reset: boolean;
+        }>
+      ) => {
+        if (action.payload.reset) {
+          state.gifs = action.payload.data.data;
+        } else {
+          state.gifs = [...state.gifs, ...action.payload.data.data];
+        }
+        state.hasMore =
+          action.payload.data.pagination.total_count > state.offset;
+        state.offset += action.payload.data.data.length;
+      }
+    );
+  },
+});
+
+export const { resetOffset } = gifSlice.actions;
+
+export const selectGifs = (state: { gifs: GifState }) => state.gifs;
+
+export default gifSlice.reducer;
