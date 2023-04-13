@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Giphy Search App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Discription
 
-## Available Scripts
+This project is a web application that allows users to search for GIFs using the Giphy API. It was built with React and Redux, and features infinite scroll and lazy loading functionality.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+To run the app locally, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Clone the repository
+- Install dependencies with npm install
+- Create a .env file in the root directory and add your Giphy API key as REACT_APP_API_KEY=YOUR_API_KEY
+- Run the app with npm start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Search for GIFs by keyword
+- Infinite scroll to load more GIFs as the user scrolls down the page
+- Lazy loading to improve performance by loading GIFs only when they are needed
+- Loading spinner to indicate when new GIFs are being loaded
+- Responsive design to ensure optimal viewing experience on different devices
+- Neat and organized layout with fixed-size images to create a cohesive look
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Search Image](./src/images/search.png)
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- Redux
+- React-Redux
+- Redux Toolkit
+- Axios
+- React Intersection Observer
+- CSS
+- TypeScript
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Future Improvements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Ability to filter search results by rating, language, or other criteria
+- Display trending GIFs on the home page
+- Ability to save favorite GIFs
+- Improved accessibility features such as keyboard navigation and screen reader compatibility
 
-### `npm run eject`
+## Contributors
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Darnell Eudoxie - creator and maintainer
